@@ -7,53 +7,70 @@ namespace LeetCode
     {
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-            int l1Int = GetNumber(l1);
-            int l2Int = GetNumber(l2);
-            int solution = l1Int + l2Int;
-            return GetLinkedList(solution);
-            
-        }
+            ListNode solution = new ListNode();
+            ListNode currentSolutionNode = solution;
+            ListNode lastSolutionNode = solution;
+            int overflow = 0;
+            ListNode currentl1 = l1;
+            ListNode currentl2 = l2;
+            while (currentl1 is null == false && currentl2 is null == false)
+            {
 
-        int GetNumber(ListNode listNode)
-        {
-            int listNodeInt = 0;
-            double pot10 = 0;
-            ListNode currentNode = listNode;
-            do
-            {
-                listNodeInt += (int)(currentNode.val * Math.Pow(10,pot10));
-                pot10 += 1;
-                currentNode = currentNode.next;
-            } while (currentNode is null == false);
-            return listNodeInt;
-        }
-        ListNode GetLinkedList(int number)
-        {
-            int rest = number;
-            int[] digits = new int[number.ToString().Length];
-            while (rest > 0)
-            {
-                int pot10 = (int)Math.Log10(rest);
-                int baseNumber = (int)(rest / Math.Pow(10, pot10));
-                digits[pot10] = baseNumber;
-                rest -= (int)(baseNumber * Math.Pow(10, pot10));
+                currentSolutionNode.val = currentl1.val + currentl2.val;
+                if (overflow > 0 )
+                {
+                    currentSolutionNode.val += overflow;
+                    overflow = 0 ;
+                }
+                if (currentSolutionNode.val >= 10)
+                {
+                    currentSolutionNode.val -= 10;
+                    overflow = 1;
+                }
+                currentSolutionNode.next = new ListNode();
+                lastSolutionNode = currentSolutionNode;
+                currentSolutionNode = currentSolutionNode.next;
+                currentl1 = currentl1.next;
+                currentl2 = currentl2.next;
             }
-
-            return GetListNode(digits);
-        }
-        ListNode GetListNode(int[] digits)
-        {
-            ListNode firstNode = new ListNode();
-            ListNode currentNode = firstNode;
-            for (int i = 0; i < digits.Length - 1; i++)
+            while (currentl1 is null == false)
             {
-                currentNode.val = digits[i];
-                currentNode.next = new ListNode();
-                currentNode = currentNode.next;
-            }
-            currentNode.val = digits[digits.Length - 1];
+                // if+else is slower than adding + setting zeros
+                currentSolutionNode.val = currentl1.val + overflow;
+                overflow = 0;
 
-            return firstNode;
+                if (currentSolutionNode.val >= 10)
+                {
+                    currentSolutionNode.val -= 10;
+                    overflow = 1;
+                }
+                currentSolutionNode.next = new ListNode();
+                lastSolutionNode = currentSolutionNode;
+                currentSolutionNode = currentSolutionNode.next;
+                currentl1 = currentl1.next;
+            }
+            while (currentl2 is null == false)
+            {
+                currentSolutionNode.val = currentl2.val + overflow;
+                overflow = 0;
+
+                if (currentSolutionNode.val >= 10)
+                {
+                    currentSolutionNode.val -= 10;
+                    overflow = 1;
+                }
+                currentSolutionNode.next = new ListNode();
+                lastSolutionNode = currentSolutionNode;
+                currentSolutionNode = currentSolutionNode.next;
+                currentl2 = currentl2.next;
+            }
+            if (overflow > 0)
+            {
+                currentSolutionNode.val = overflow;
+                overflow = 0;
+            }
+            else lastSolutionNode.next = null;
+            return solution;
         }
     }
 
