@@ -6,11 +6,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            AddTwoNumberProb addTwoNumberProb = new AddTwoNumberProb();
-            ListNode l1 = new ListNode(new int[] { 9, 9, 9, 9, 9, 9, 9 });
-
-            ListNode l2 = new ListNode(new int[] { 9, 9, 9, 9 });
-            ListNode sol = addTwoNumberProb.AddTwoNumbers(l1, l2);
+            MyAtoiProb myAtoiProb = new MyAtoiProb();
+            int sol = myAtoiProb.MyAtoi("-+12");
         }
     }
 }
