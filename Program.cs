@@ -6,12 +6,12 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            TwoSumProb twoSumClass = new TwoSumProb();
-            int[] solution = twoSumClass.TwoSum(new int[] { 2, 7, 11, 15 }, 9);
-            foreach (var item in solution)
-            {
-                Console.WriteLine(item);
-            }
+            AddTwoNumberProb addTwoNumberProb = new AddTwoNumberProb();
+
+            ListNode l1 = new ListNode(new int[] {9});
+
+            ListNode l2 = new ListNode(new int[] {1, 9, 9, 9, 9, 9, 9, 9, 9, 9});
+            addTwoNumberProb.AddTwoNumbers(l1, l2);
         }
     }
 }
