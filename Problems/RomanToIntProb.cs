@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LeetCode
+namespace LeetCode.Problems
 {
     class RomanToIntProb
     {
-        Dictionary<char, int> RomanDic = new Dictionary<char, int>()
+        readonly Dictionary<char, int> RomanDic = new Dictionary<char, int>()
         {
             {'I',1    },
             {'V',5    },
@@ -20,7 +20,7 @@ namespace LeetCode
         public int RomanToInt(string s)
         {
             int sum = 0;
-            int currentInt = 0;
+            int currentInt;
             int lastInt = 0;
             for (int i = 0; i < s.Length; i++)
             {

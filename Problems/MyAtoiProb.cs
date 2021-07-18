@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LeetCode
+namespace LeetCode.Problems
 {
     class MyAtoiProb
     {
@@ -14,7 +14,7 @@ namespace LeetCode
             if (s[0] == '-' || s[0] == '+')
             {
                 if (s[0] == '-') solution += '-';
-                s = s.Substring(1);
+                s = s[1..];
             }
             for (int i = 0; i < s.Length; i++)
             {

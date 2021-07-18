@@ -1,4 +1,6 @@
 ﻿using System;
+using LeetCode.Problems;
+using LeetCode.DataStructures;
 
 namespace LeetCode
 {

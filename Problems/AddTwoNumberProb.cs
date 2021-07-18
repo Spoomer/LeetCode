@@ -1,7 +1,8 @@
-﻿using System;
+﻿using LeetCode.DataStructures;
+using System;
 using System.Collections.Generic;
 
-namespace LeetCode
+namespace LeetCode.Problems
 {
     class AddTwoNumberProb
     {
@@ -66,9 +67,7 @@ namespace LeetCode
             }
             if (overflow > 0)
             {
-                currentSolutionNode.val = overflow;
-                overflow = 0;
-            }
+                currentSolutionNode.val = overflow;            }
             else lastSolutionNode.next = null;
             return solution;
         }

@@ -1,10 +1,11 @@
-﻿namespace LeetCode
+﻿namespace LeetCode.DataStructures
+
 {
     public class ListNode<T>
     {
         public T val;
         public ListNode<T> next;
-        public ListNode(T val = default(T), ListNode<T> next = null)
+        public ListNode(T val = default, ListNode<T> next = null)
         {
             this.val = val;
             this.next = next;
@@ -29,7 +30,7 @@
                 currentNode.next = new ListNode();
                 currentNode = currentNode.next;
             }
-            currentNode.val = digits[digits.Length - 1];
+            currentNode.val = digits[^1];
         }
     }
 
