@@ -6,8 +6,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            MyAtoiProb myAtoiProb = new MyAtoiProb();
-            int sol = myAtoiProb.MyAtoi("-+12");
+            RomanToIntProb romanToIntProb = new RomanToIntProb();
+            Console.WriteLine(romanToIntProb.RomanToInt("MCMXCIV"));
         }
     }
 }
