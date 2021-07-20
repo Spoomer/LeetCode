@@ -8,8 +8,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            RomanToIntProb romanToIntProb = new RomanToIntProb();
-            Console.WriteLine(romanToIntProb.RomanToInt("MCMXCIV"));
+            LongestCommonPrefixProp longestCommonPrefixProp = new LongestCommonPrefixProp();
+            Console.WriteLine(longestCommonPrefixProp.LongestCommonPrefix(new string[] { "a", ""}));
         }
     }
 }
