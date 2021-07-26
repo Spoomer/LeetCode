@@ -8,8 +8,9 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            LongestCommonPrefixProp longestCommonPrefixProp = new LongestCommonPrefixProp();
-            Console.WriteLine(longestCommonPrefixProp.LongestCommonPrefix(new string[] { "a", ""}));
+            ThreeSumProb threeSumProb = new ThreeSumProb();
+            var result = threeSumProb.ThreeSum(new int[] { 3, 0, -2, -1, 1, 2});
         }
+
     }
 }
