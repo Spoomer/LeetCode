@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 
@@ -9,49 +10,75 @@ namespace LeetCode.Problems
     {
         public IList<IList<int>> ThreeSum(int[] nums)
         {
-            IList<IList<int>> result = new List<IList<int>>();
-            if (nums.Length < 3) return result;
-            Dictionary<string, IList<int>> tripleDic = new Dictionary<string, IList<int>>();
+            HashSet<IList<int>> result = new HashSet<IList<int>>(new IntListComparer());
+            if (nums.Length < 3) return new IList<int>[0];
+            Array.Sort(nums);
+
             for (int i = 0; i < nums.Length; i++)
             {
-                
-                for (int j = i+1; j < nums.Length; j++)
+                int j = i + 1;
+                int k = nums.Length - 1;
+                while (k > j)
                 {
-                    if (nums.Length-1 == j) continue;
-                    for (int k = j + 1; k < nums.Length; k++)
+                    int sum = nums[i] + nums[k] + nums[j];
+                    if (sum == 0)
                     {
-                        if (nums[i] + nums[j] + nums[k] == 0)
-                        {
-                            List<int> temp = new List<int>();
-                            temp.Add(nums[i]);
-                            temp.Add(nums[j]);
-                            temp.Add(nums[k]);
-                            temp.Sort();
+                        result.Add(new int[] { nums[i], nums[k], nums[j] });
 
-                            if (tripleDic.ContainsKey(CreateKey(temp)) == false)
-                            {
-                                tripleDic.Add(CreateKey(temp), temp);
-                            }
-
-                        }
-                        else continue;
                     }
-                    
-                    
-                    
+                    if (sum < 0)
+                    {
+                        j++;
+                    }
+                    else k--;
                 }
             }
-            return tripleDic.Values.ToList();
+            return result.ToArray();
 
         }
-        string CreateKey(List<int> intList)
+
+    }
+    public class IntListComparer : IEqualityComparer<IList<int>>
+    {
+        public bool Equals(IList<int> x, IList<int> y)
         {
-            string result ="";
-            foreach (var i in intList)
+            if (x is null && y is null == false)
             {
-                result +=$"{i},";
+                return false;
             }
-            return result;
+            else if (x is null == false && y is null)
+            {
+                return false;
+            }
+            else if (x is null && y is null)
+            {
+                return true;
+            }
+
+            if (x.Count != y.Count)
+            {
+                return false;
+            }
+
+            for (var i = 0; i < x.Count; i++)
+            {
+                if (x[i] == y[i])
+                {
+                    continue;
+                }
+                else return false;
+            }
+            return true;
+        }
+
+        public int GetHashCode(IList<int> obj)
+        {
+            int hashCode = 0;
+            for (var i = 0; i < obj.Count; i++)
+            {
+                hashCode += i * obj[i];
+            }
+            return hashCode;
         }
     }
 }
