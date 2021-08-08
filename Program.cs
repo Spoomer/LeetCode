@@ -8,8 +8,9 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            ThreeSumProb threeSumProb = new ThreeSumProb();
-            var result = threeSumProb.ThreeSum(new int[] { 3, 0, -2, -1, 1, 2});
+            var threeSumProb = new RemoveNthFromEndProb();
+            ListNode head = new ListNode(1, new ListNode(2));
+            var result = threeSumProb.RemoveNthFromEnd(head,1);
         }
 
     }
