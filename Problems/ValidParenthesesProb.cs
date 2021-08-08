@@ -6,19 +6,51 @@ namespace LeetCode.Problems
     {
         public bool IsValid(string s)
         {
-            Dictionary<char, int> charCounter = new Dictionary<char, int>()
-                                                        {
-                                                            {'(',0},
-                                                            {')',0},
-                                                            {'{',0},
-                                                            {'}',0},
-                                                            {'[',0},
-                                                            {']',0},
-                                                        };
+            Stack<char> parenthesesStack = new Stack<char>();
             for (var i = 0; i < s.Length; i++)
             {
-                charCounter[s[i]]++;
+                switch (s[i])
+                {
+                    case '(':
+                        parenthesesStack.Push(')');
+                        break;
+                    case ')':
+                        if (parenthesesStack.Count == 0) return false;
+                        if (parenthesesStack.Peek() == ')')
+                        {
+                            parenthesesStack.Pop();
+                            continue;
+                        }
+                        else return false;
+                    case '[':
+                        parenthesesStack.Push(']');
+                        break;
+                    case ']':
+                        if (parenthesesStack.Count == 0) return false;
+                        if (parenthesesStack.Peek() == ']')
+                        {
+                            parenthesesStack.Pop();
+                            continue;
+                        }
+                        else return false;
+                    case '{':
+                        parenthesesStack.Push('}');
+                        break;
+                    case '}':
+                        if (parenthesesStack.Count == 0) return false;
+                        if (parenthesesStack.Peek() == '}')
+                        {
+                            parenthesesStack.Pop();
+                            continue;
+                        }
+                        else return false;
+                    default:
+                        break;
+                }
+
             }
+            if (parenthesesStack.Count >0) return false;
+            else return true;
         }
     }
 }

@@ -8,9 +8,12 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            var threeSumProb = new RemoveNthFromEndProb();
-            ListNode head = new ListNode(1, new ListNode(2));
-            var result = threeSumProb.RemoveNthFromEnd(head,1);
+            var obj = new ValidParenthesesProb();
+            var result = obj.IsValid("(]");
+            var result1 = obj.IsValid("([)]");
+            var result2 = obj.IsValid("{[]}");
+            var result3 = obj.IsValid("{");
+            var result4 = obj.IsValid("}");
         }
 
     }
