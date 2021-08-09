@@ -8,12 +8,12 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            var obj = new ValidParenthesesProb();
-            var result = obj.IsValid("(]");
-            var result1 = obj.IsValid("([)]");
-            var result2 = obj.IsValid("{[]}");
-            var result3 = obj.IsValid("{");
-            var result4 = obj.IsValid("}");
+            ListNode[] nodes = new ListNode[3];
+            nodes[0] = new ListNode(new int[] { 1, 4, 5 });
+            nodes[1] = new ListNode(new int[] { 1, 3, 4 });
+            nodes[2] = new ListNode(new int[] { 2,6 });
+            var obj = new MergedkLinkedLists();
+            var result = obj.MergeKLists(nodes);
         }
 
     }
