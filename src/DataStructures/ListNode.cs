@@ -1,4 +1,6 @@
-﻿namespace LeetCode.DataStructures
+﻿using System.Collections.Generic;
+
+namespace LeetCode.DataStructures
 
 {
     public class ListNode<T>
@@ -31,6 +33,18 @@
                 currentNode = currentNode.next;
             }
             currentNode.val = digits[^1];
+        }
+        public static int[] GetValues (ListNode listNode)
+        {
+            List<int> values = new ();
+            ListNode currentNode = listNode;
+            values.Add(listNode.val);
+            while (currentNode.next is not null)
+            {
+                values.Add(currentNode.next.val);
+                currentNode = currentNode.next;
+            }
+            return values.ToArray();
         }
     }
 
