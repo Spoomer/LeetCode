@@ -43,5 +43,14 @@ namespace LeetCode.Test
             ListNode result = prob.SwapPairs(head);
             Assert.Equal(new int[] { 4, 1, 6, 5 }, ListNode.GetValues(result));
         }
+        [Fact]
+        public void SwapPairsProbTest5()
+        {
+            int[] values = new int[] { 1, 4, 5, 6 ,8};
+            ListNode head = new ListNode(values);
+            SwapPaisProb prob = new SwapPaisProb();
+            ListNode result = prob.SwapPairs(head);
+            Assert.Equal(new int[] { 4, 1, 6, 5, 8}, ListNode.GetValues(result));
+        }
     }
 }
