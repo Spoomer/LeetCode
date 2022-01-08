@@ -8,10 +8,10 @@ namespace LeetCode.Problems
 {
     public class ThreeSumProb
     {
-        public IList<IList<int>> ThreeSum(int[] nums)
+        public static IList<IList<int>> ThreeSum(int[] nums)
         {
-            HashSet<IList<int>> result = new HashSet<IList<int>>(new IntListComparer());
-            if (nums.Length < 3) return new IList<int>[0];
+            HashSet<IList<int>> result = new(new IntListComparer());
+            if (nums.Length < 3) return Array.Empty<IList<int>>();
             Array.Sort(nums);
 
             for (int i = 0; i < nums.Length; i++)
@@ -40,7 +40,7 @@ namespace LeetCode.Problems
     }
     public class IntListComparer : IEqualityComparer<IList<int>>
     {
-        public bool Equals(IList<int> x, IList<int> y)
+        public bool Equals(IList<int>? x, IList<int>? y)
         {
             if (x is null && y is null == false)
             {

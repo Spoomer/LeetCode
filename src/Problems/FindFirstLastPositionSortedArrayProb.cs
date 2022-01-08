@@ -49,7 +49,7 @@ namespace src.Problems
                 }
                 else if (nums[searchIndex] > target)
                 {
-                    right = right - 1;
+                    right--;
                     searchIndex = (left + right) / 2;
                 }
                 else

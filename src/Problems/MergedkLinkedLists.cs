@@ -4,7 +4,7 @@ namespace LeetCode.Problems
 {
     public class MergedkLinkedLists
     {
-        public ListNode MergeKLists(ListNode[] lists)
+        public ListNode? MergeKLists(ListNode[] lists)
         {
             if (lists is null || lists.Length == 0) return null;
             int smallestIndex = 0;
@@ -19,8 +19,8 @@ namespace LeetCode.Problems
                 }
             }
             if (smallestVal == 10001) return null;
-            ListNode result = lists[smallestIndex];
-            ListNode currentResult = result;
+            ListNode? result = lists[smallestIndex];
+            ListNode? currentResult = result;
             lists[smallestIndex] = lists[smallestIndex].next;
 
             while (lists.Length > 0)

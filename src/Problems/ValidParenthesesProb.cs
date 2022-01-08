@@ -4,9 +4,9 @@ namespace LeetCode.Problems
 {
     public class ValidParenthesesProb
     {
-        public bool IsValid(string s)
+        public static bool IsValid(string s)
         {
-            Stack<char> parenthesesStack = new Stack<char>();
+            Stack<char> parenthesesStack = new();
             for (var i = 0; i < s.Length; i++)
             {
                 switch (s[i])
@@ -49,7 +49,7 @@ namespace LeetCode.Problems
                 }
 
             }
-            if (parenthesesStack.Count >0) return false;
+            if (parenthesesStack.Count > 0) return false;
             else return true;
         }
     }

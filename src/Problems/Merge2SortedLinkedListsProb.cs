@@ -8,9 +8,9 @@ namespace LeetCode.Problems
         {
             if (l1 is null) return l2;
             if (l2 is null) return l1;
-            ListNode currentl1 = l1;
-            ListNode currentl2 = l2;
-            ListNode result;
+            ListNode? currentl1 = l1;
+            ListNode? currentl2 = l2;
+            ListNode? result;
 
             if (l2.val < l1.val)
             {

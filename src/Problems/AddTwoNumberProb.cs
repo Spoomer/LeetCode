@@ -8,20 +8,20 @@ namespace LeetCode.Problems
     {
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-            ListNode solution = new ListNode();
-            ListNode currentSolutionNode = solution;
-            ListNode lastSolutionNode = solution;
+            ListNode? solution = new();
+            ListNode? currentSolutionNode = solution;
+            ListNode? lastSolutionNode = solution;
             int overflow = 0;
-            ListNode currentl1 = l1;
-            ListNode currentl2 = l2;
+            ListNode? currentl1 = l1;
+            ListNode? currentl2 = l2;
             while (currentl1 is null == false && currentl2 is null == false)
             {
 
                 currentSolutionNode.val = currentl1.val + currentl2.val;
-                if (overflow > 0 )
+                if (overflow > 0)
                 {
                     currentSolutionNode.val += overflow;
-                    overflow = 0 ;
+                    overflow = 0;
                 }
                 if (currentSolutionNode.val >= 10)
                 {
@@ -67,7 +67,8 @@ namespace LeetCode.Problems
             }
             if (overflow > 0)
             {
-                currentSolutionNode.val = overflow;            }
+                currentSolutionNode.val = overflow;
+            }
             else lastSolutionNode.next = null;
             return solution;
         }

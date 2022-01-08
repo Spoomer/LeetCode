@@ -8,26 +8,26 @@ namespace LeetCode.Problems
 {
     public class SwapPaisProb
     {
-        public ListNode SwapPairs(ListNode head)
+        public static ListNode? SwapPairs(ListNode? head)
         {
             bool second = true;
             if (head is null) return null;
             ListNode currentNodeHead = head;
-            ListNode result = new ListNode(head.val);
+            ListNode? result = new(head.val);
             ListNode currentNodeResult = result;
             while (currentNodeHead.next is not null)
             {
                 if (second)
                 {
-                    result = new ListNode(head.next.val,result);
+                    result = new ListNode(head.next.val, result);
                     currentNodeResult = result.next;
                     currentNodeHead = head.next;
                     second = false;
                 }
                 else if (currentNodeHead.next.next is not null)
                 {
-                    ListNode temptail = null;
-                    if ( currentNodeHead.next.next.next is not null)
+                    ListNode? temptail = null;
+                    if (currentNodeHead.next.next.next is not null)
                     {
                         temptail = currentNodeHead.next.next.next;
                     }
@@ -35,14 +35,14 @@ namespace LeetCode.Problems
                     currentNodeResult.next.next = currentNodeHead.next;
                     currentNodeResult.next.next.next = null;
                     currentNodeResult = currentNodeResult.next.next;
-                    currentNodeHead = new ListNode(next:temptail);
+                    currentNodeHead = new ListNode(next: temptail);
                 }
-                else 
+                else
                 {
                     currentNodeResult.next = currentNodeHead.next;
                     currentNodeHead = currentNodeHead.next;
                 }
-                
+
             }
             return result;
         }

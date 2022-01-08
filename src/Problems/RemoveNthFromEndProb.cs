@@ -5,10 +5,10 @@ namespace LeetCode.Problems
 {
     public class RemoveNthFromEndProb
     {
-        public ListNode RemoveNthFromEnd(ListNode head, int n)
+        public ListNode? RemoveNthFromEnd(ListNode head, int n)
         {
-            List<ListNode> allNodes = new List<ListNode>();
-            ListNode current = head;
+            List<ListNode> allNodes = new();
+            ListNode? current = head;
             do
             {
                 allNodes.Add(current);
@@ -26,7 +26,7 @@ namespace LeetCode.Problems
             {
                 allNodes[0].next = null;
             }
-            else if (n==1)
+            else if (n == 1)
             {
                 allNodes[^2].next = null;
             }
@@ -34,7 +34,7 @@ namespace LeetCode.Problems
             {
                 allNodes[^(n + 1)].next = allNodes[^(n - 1)];
             }
-            
+
             return head;
 
         }

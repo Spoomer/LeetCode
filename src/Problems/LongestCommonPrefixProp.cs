@@ -9,12 +9,12 @@ namespace LeetCode.Problems
         public string LongestCommonPrefix(string[] strs)
         {
             if (strs.Length == 0 || string.IsNullOrEmpty(strs[0])) return "";
-            
-            StringBuilder prefix = new StringBuilder();
+
+            StringBuilder prefix = new();
             prefix.Append(strs[0][0]);
             bool prefixStillValid = true;
             string lastValidPrefix = "";
-            while(prefixStillValid ==true)
+            while (prefixStillValid == true)
             {
                 for (int i = 0; i < strs.Length; i++)
                 {
@@ -24,20 +24,20 @@ namespace LeetCode.Problems
                         break;
                     }
                 }
-                if (prefixStillValid ==true)
+                if (prefixStillValid == true)
                 {
                     lastValidPrefix = prefix.ToString();
                     if (strs[0].Length > prefix.Length)
                     {
-                        prefix.Append(strs[0].Substring(prefix.Length, 1));
+                        prefix.Append(strs[0].AsSpan(prefix.Length, 1));
                     }
                     else
                     {
                         prefixStillValid = false;
                     }
-                    
+
                 }
-                
+
             }
 
             return lastValidPrefix;
