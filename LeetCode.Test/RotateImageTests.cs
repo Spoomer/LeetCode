@@ -12,7 +12,7 @@ namespace LeetCode.Test
             int[][] image2 = new int[1][];
             image[0] = new int[] { 1 };
             image.CopyTo(image2, 0);
-            RotateImage.Rotate90(image);
+            RotateImageProb.Rotate90(image);
             Assert.Equal(image2, image);
         }
         [Fact]
@@ -24,7 +24,7 @@ namespace LeetCode.Test
             image[1] = new int[] { 3, 4 };
             image2[0] = new int[] { 3, 1 };
             image2[1] = new int[] { 4, 2 };
-            RotateImage.Rotate90(image);
+            RotateImageProb.Rotate90(image);
             Assert.Equal(image2, image);
         }
         [Fact]
@@ -38,7 +38,7 @@ namespace LeetCode.Test
             image2[0] = new int[] { 7, 4, 1 };
             image2[1] = new int[] { 8, 5, 2 };
             image2[2] = new int[] { 9, 6, 3 };
-            RotateImage.Rotate90(image);
+            RotateImageProb.Rotate90(image);
             Assert.Equal(image2, image);
         }
         [Fact]
@@ -54,7 +54,7 @@ namespace LeetCode.Test
             image2[1] = new int[] { 14, 10, 6, 2 };
             image2[2] = new int[] { 15, 11, 7, 3 };
             image2[3] = new int[] { 16, 12, 8, 4 };
-            RotateImage.Rotate90(image);
+            RotateImageProb.Rotate90(image);
             Assert.Equal(image2, image);
         }
     }

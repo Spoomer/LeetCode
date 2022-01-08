@@ -7,19 +7,32 @@ namespace src.Problems
 {
     public class RotateImageProb
     {
-        public static void Rotate(int[][] matrix)
+        public static void Rotate90(int[][] matrix)
         {
-            int move = matrix.Length - 1;
-            int temp = matrix[0][0];
-            for (int i = 0; i < matrix.Length; i++)
+            if (matrix.Length < 2) return;
+            int length = matrix.Length;
+            int row;
+            int column;
+            int change;
+            for (int i = 0; i < length - 1; i++)
             {
-                for (int j = 0; j < matrix[i].Length; j++)
+                for (int j = 0 + i; j < length - 1 - i; j++)
                 {
-                    for (int k = 0; k < move; k++)
+                    row = j;
+                    column = length - 1 - i;
+                    change = matrix[row][column];
+                    matrix[row][column] = matrix[i][j];
+                    while (!(row == i && column == j))
                     {
-
+                        int rowTemp = row;
+                        row = column;
+                        column = length - 1 - rowTemp;
+                        int temp = matrix[row][column];
+                        matrix[row][column] = change;
+                        change = temp;
                     }
                 }
+                if ((i + 1) / length > 0.5) break;
             }
         }
     }
