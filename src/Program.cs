@@ -1,15 +1,10 @@
-﻿using System;
-using LeetCode.Problems;
-using LeetCode.DataStructures;
+﻿namespace LeetCode;
 
-namespace LeetCode
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            
-        }
 
     }
+
 }

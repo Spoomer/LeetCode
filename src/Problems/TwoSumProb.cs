@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace LeetCode.Problems;
 
-namespace LeetCode.Problems
+class TwoSumProb
 {
-    class TwoSumProb
+    public static int[] TwoSum(int[] nums, int target)
     {
-        public static int[] TwoSum(int[] nums, int target)
+        for (int i = 0; i < nums.Length; i++)
         {
-            for (int i = 0; i < nums.Length; i++)
+            for (int j = i + 1; j < nums.Length; j++)
             {
-                for (int j = i + 1; j < nums.Length; j++)
+                if (nums[i] + nums[j] == target)
                 {
-                    if (nums[i] + nums[j] == target)
-                    {
-                        return new int[] { i, j };
-                    }
+                    return new int[] { i, j };
                 }
             }
-
-            return new int[] { 0, 1 };
         }
+
+        return new int[] { 0, 1 };
     }
 }
