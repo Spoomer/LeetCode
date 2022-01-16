@@ -19,7 +19,7 @@ public class MergedkLinkedLists
         if (smallestVal == 10001) return null;
         ListNode? result = lists[smallestIndex];
         ListNode? currentResult = result;
-        lists[smallestIndex] = lists[smallestIndex].next;
+        lists[smallestIndex] = lists[smallestIndex].next!;
 
         while (lists.Length > 0)
         {
@@ -37,7 +37,7 @@ public class MergedkLinkedLists
             if (smallestVal == 10001) break;
             currentResult.next = lists[smallestIndex];
             currentResult = currentResult.next;
-            lists[smallestIndex] = lists[smallestIndex].next;
+            lists[smallestIndex] = lists[smallestIndex].next!;
 
         }
         return result;

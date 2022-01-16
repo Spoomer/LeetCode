@@ -36,33 +36,35 @@ public class IntListComparer : IEqualityComparer<IList<int>>
 {
     public bool Equals(IList<int>? x, IList<int>? y)
     {
-        if (x is null && y is null == false)
-        {
-            return false;
-        }
-        else if (x is null == false && y is null)
-        {
-            return false;
-        }
-        else if (x is null && y is null)
+        if (x is null & y is null)
         {
             return true;
         }
-
-        if (x.Count != y.Count)
+        else if (x is null & y is not null)
         {
             return false;
         }
-
-        for (var i = 0; i < x.Count; i++)
+        else if (x is not null & y is null)
         {
-            if (x[i] == y[i])
-            {
-                continue;
-            }
-            else return false;
+            return false;
         }
-        return true;
+        else if (x.Count != y.Count)
+        {
+            return false;
+        }
+        else
+        {
+            for (var i = 0; i < x.Count; i++)
+            {
+                if (x[i] == y[i])
+                {
+                    continue;
+                }
+                else return false;
+            }
+            return true;
+        }
+
     }
 
     public int GetHashCode(IList<int> obj)
