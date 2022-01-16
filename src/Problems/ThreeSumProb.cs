@@ -36,15 +36,11 @@ public class IntListComparer : IEqualityComparer<IList<int>>
 {
     public bool Equals(IList<int>? x, IList<int>? y)
     {
-        if (x is null & y is null)
+        if (x is null)
         {
-            return true;
+            return y is null;
         }
-        else if (x is null & y is not null)
-        {
-            return false;
-        }
-        else if (x is not null & y is null)
+        else if (y is null)
         {
             return false;
         }
