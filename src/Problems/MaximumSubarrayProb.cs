@@ -2,6 +2,7 @@ namespace LeetCode.Problems
 {
     public class MaximumSubarrayProb
     {
+        //Kadane Algo
         public static int MaxSubArray(int[] nums)
         {
             int max = int.MinValue;
