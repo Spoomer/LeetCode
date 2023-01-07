@@ -27,9 +27,10 @@ public class MergeIntervalsTests
     [Fact]
     public void MergeTest3()
     {
-        int[][] intervals = new int[2][];
+        int[][] intervals = new int[3][];
         intervals[0] = new[] {1, 4};
         intervals[1] = new[] {0, 5};
+        intervals[2] = new[] {0, 4};
         var result = MergeIntervals.Merge(intervals);
         Assert.Equal(0,result[0][0]);
         Assert.Equal(5,result[0][1]);
