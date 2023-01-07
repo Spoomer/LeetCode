@@ -4,36 +4,35 @@ public class MergeIntervals
 {
     public static int[][] Merge(int[][] intervals)
     {
-        List<int[]> result = new();
-        result.Add(intervals[0]);
-        for (int i = 1; i < intervals.Length; i++)
+        while (true)
         {
-            int[] current = intervals[i];
-            if (i + 1 < intervals.Length)
+            bool somethingMerge = false;
+            List<int[]> result = new();
+            result.Add(intervals[0]);
+            for (int i = 1; i < intervals.Length; i++)
             {
-                int[] next = intervals[i + 1];
-                if (current[1] >= next[0])
+                int[] current = intervals[i];
+                int[]? foundIntervall = result.Find(resultItem => current[0] <= resultItem[1] && current[0] >= resultItem[0] || resultItem[0] <= current[1] && resultItem[0] >= current[0]);
+                if (foundIntervall is null)
                 {
-                    if (result[^1][1] >= current[0])
-                    {
-                        result[^1][1] = next[1];
-                        continue;
-                    }
-                    result.Add(new[] {current[0], next[1]});
+                    result.Add(current);
                     continue;
                 }
+
+                foundIntervall[0] = foundIntervall[0] <= current[0]
+                    ? foundIntervall[0]
+                    : current[0];
+                foundIntervall[1] = foundIntervall[1] >= current[1]
+                    ? foundIntervall[1]
+                    : current[1];
+                somethingMerge = true;
             }
 
-            if (result[^1][1] >= current[0])
+            intervals = result.ToArray();
+            if (!somethingMerge)
             {
-                result[^1][1] = current[1];
-            }
-            else
-            {
-                result.Add(new[] {current[0], current[1]});
+                return intervals;
             }
         }
-
-        return result.ToArray();
     }
 }
